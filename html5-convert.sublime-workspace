@@ -1,0 +1,216 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "css/main.css",
+			"settings":
+			{
+				"buffer_size": 1573,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<html>\n  <head>\n     <title>Cool calculator © Stanislav Katkov</title>\n      <link rel=\"stylesheet\" href=\"css/main.css\"/>\n        <meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;\" />      \n        <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\"/>\n  </head>\n  <body>\n    <div class=\"container\">\n    <!-- Display section -->\n      <div id=\"testRelativeDiv\" class=\"center\" style=\"height:30%\">\n        <div style=\"height:40%\">\n          <div class= \"floatLeft gradientBckg\">\n            <img src=\"img/cur_main_EUR.png\"/>\n          </div>\n          <div class=\"floatRight gradientBckg\">\n            <img src=\"img/cur_main_USD.png\"/>\n          </div>\n        </div>\n        <div style=\"height:60%\">\n          <div class=\"floatLeft displayText\">0</div>\n          <div class=\"floatRight displayText 3gradient\">0</div>\n        </div>\n\n      </div>\n    \n    <!--Button section-->\n    <div class=\"center buttonHolder\" style=\"height:70%\">\n      <button onclick=\"alert('1')\">1</button> <button onclick=\"alert('2')\">2</button> <button onclick=\"alert('3')\" >3</button>\n      <button onclick=\"alert('4')\">4</button> <button onclick=\"alert('5')\">5</button> <button onclick=\"alert('6')\" >6</button>\n      <button onclick=\"alert('7')\">7</button> <button onclick=\"alert('8')\">8</button> <button onclick=\"alert('9')\" >9</button>\n      <button onclick=\"alert('&lt;')\">&lt;</button> <button onclick=\"alert('0')\">0</button> <button onclick=\"alert('.')\">.</button>\n    </div>\n    </div>\n  </body>\n</html>\n",
+			"file": "index.html",
+			"file_size": 1637,
+			"file_write_time": 1337349981000000,
+			"settings":
+			{
+				"buffer_size": 1595,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ash",
+				"Set Syntax: Shell Script (Bash)"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "css/main.css",
+					"settings":
+					{
+						"buffer_size": 1573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								193,
+								193
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 1595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								958,
+								958
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

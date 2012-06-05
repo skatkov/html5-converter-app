@@ -24,14 +24,16 @@
             } else {
               insertValue(document.getElementById("leftScreen"), activeElement.innerHTML*1.5)
             }
-          }
+         }
       }
 
       function insertValue(element, value){
-        if (-1== value.indexOf('.')){
+        console.log('insertValue : ' + value);
+        if (-1 != value.search('.')) {
+          console.log('i see .dot people');
           element.innerHTML = value;
         } else {
-          element.innerHTML = value.toFixed(1);
+          element.innerHTML = parseFloat(new Number(value).toFixed(2));
         }
       }
 

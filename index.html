@@ -5,14 +5,51 @@
       Cool calculator &Acirc;&copy; Stanislav Katkov
     </title>
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;">
     <meta http-equiv="Content-type" content="text/html; charset=us-ascii">
+    <script type="text/javascript">
+      var lastFocusedTextarea = 'leftScreen';
+      function lastActiveTextArea(fieldId){
+        var count = 0;
+        if (count==0) {
+          lastFocusedTextarea = fieldId;
+          count++;
+        }
+      }
+      function runConvert(e){
+          var activeElement = document.getElementById(lastFocusedTextarea);
+          if(e.keyCode == 13){
+            var Val = activeElement.innerHTML.replace(/^\s+|\s+$/g, '');
+            if (lastFocusedTextarea == "leftScreen"){
+              insertValue(document.getElementById("rightScreen"), activeElement.innerHTML*1.5)
+            } else {
+              insertValue(document.getElementById("leftScreen"), activeElement.innerHTML*1.5)
+            }
+          }
+      }
+
+      function insertValue(element, value){
+        if (-1== value.indexOf('.')){
+          element.innerHTML = value;
+        } else {
+          element.innerHTML = value.toFixed(1);
+        }
+      }
+
+      function updateScreen(value){
+        var activeElement = document.getElementById(lastFocusedTextarea);
+        if (activeElement.innerHTML == 0){
+          insertValue(activeElement, value)
+        } else {
+          insertValue(activeElement, activeElement.innerHTML + value);
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="container">
       <!-- Display section -->
       <div id="testRelativeDiv" class="center" style="height:30%">
-        <div style="height:40%&acirc;&circ;">
+        <div style="height:40%;">
           <div class="floatLeft gradientBckg">
             <img src="img/cur_main_EUR.png">
           </div>
@@ -21,16 +58,14 @@
           </div>
         </div>
         <div style="height:60%">
-          <div class="floatLeft displayText">
-            0
-          </div>
-          <div class="floatRight displayText 3gradient">
-            0
-          </div>
+          <textarea id="leftScreen" readonly="true" rows="1" class="floatLeft displayText" onkeydown="runConvert(event)" onFocus="lastActiveTextArea('leftScreen')">0</textarea>
+          <textarea id="rightScreen" readonly="true" rows="1" class="floatRight displayText 3gradient" onkeydown="runConvert(event)" onFocus="lastActiveTextArea('rightScreen')">0</textarea>
         </div>
-      </div><!--Button section-->
+      </div>
+
+      <!--Button section-->
       <div class="center buttonHolder" style="height:70%">
-        <button onclick="alert('1')">1</button> <button onclick="alert('2')">2</button> <button onclick="alert('3')">3</button> <button onclick="alert('4')">4</button> <button onclick="alert('5')">5</button> <button onclick="alert('6')">6</button> <button onclick="alert('7')">7</button> <button onclick="alert('8')">8</button> <button onclick="alert('9')">9</button> <button onclick="alert('&lt;')">&lt;</button> <button onclick="alert('0')">0</button> <button onclick="alert('.')">.</button>
+        <button onclick="updateScreen(1)" >1</button> <button onclick="updateScreen('2')">2</button> <button onclick="updateScreen('3')">3</button> <button onclick="updateScreen('4')">4</button> <button onclick="updateScreen('5')">5</button> <button onclick="updateScreen('6')">6</button> <button onclick="updateScreen('7')">7</button> <button onclick="updateScreen('8')">8</button> <button onclick="updateScreen('9')">9</button> <button onclick="updateScreen('&lt;')">&lt;</button> <button onclick="updateScreen('0')">0</button> <button onclick="updateScreen('.')">.</button>
       </div>
     </div>
   </body>

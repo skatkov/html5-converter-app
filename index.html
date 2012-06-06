@@ -1,83 +1,85 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-  <head>
-    <title>
-      Cool calculator &Acirc;&copy; Stanislav Katkov
-    </title>
-    <link rel="stylesheet" href="css/main.css" type="text/css">
-    <meta http-equiv="Content-type" content="text/html; charset=us-ascii">
-    <script type="text/javascript">
-      var lastFocusedTextarea = 'leftScreen';
-      function lastActiveTextArea(fieldId){
-        var count = 0;
-        if (count==0) {
-          lastFocusedTextarea = fieldId;
-          count++;
-        }
-      }
-      function runConvert(e){
-          var activeElement = document.getElementById(lastFocusedTextarea);
-          if(e.keyCode == 13){
-            var Val = activeElement.innerHTML.replace(/^\s+|\s+$/g, '');
-            if (lastFocusedTextarea == "leftScreen"){
-              insertValue(document.getElementById("rightScreen"), activeElement.innerHTML*1.5)
-            } else {
-              insertValue(document.getElementById("leftScreen"), activeElement.innerHTML*1.5)
-            }
-         }
-      }
+<head>
+  <title>
+    Cool calculator &Acirc;&copy; Stanislav Katkov
+  </title>
+  <link rel="stylesheet" href="css/main.css" type="text/css">
+  <meta http-equiv="Content-type" content="text/html; charset=us-ascii">
+  <script type="text/javascript">
+  var lastFocusedTextarea = 'leftScreen';
+  function lastActiveTextArea(fieldId){
+    console.log('Focus changed')
+      lastFocusedTextarea = fieldId;
+      insertValue(document.getElementById(fieldId), '0')
+  }
+  function runConvert(fromElement){
+    console.log("runConvert " + fromElement);
+    var activeElement = document.getElementById(fromElement);
+    if (lastFocusedTextarea == "leftScreen"){
+      insertValue(document.getElementById("rightScreen"), parseFloat(activeElement.innerHTML)*1.5);
+    } else {
+      insertValue(document.getElementById("leftScreen"), parseFloat(activeElement.innerHTML)*1.5);
+    }
+  }
 
-      function insertValue(element, value){
-        console.log('insertValue : ' + value);
-        if ('.' == value.slice(value.length -1 , value.length)) {
-          console.log('i see .dot people');
-          element.innerHTML = value;
-        } else {
-          element.innerHTML = parseFloat(new Number(value).toFixed(2));
-        }
-      }
+  function insertValue(element, value){
+    var str = value.toString();
+    console.log('insertValue : ' + str);
+    if ('.' == str.slice(str.length -1 , str.length)) {
+      console.log('i see .dot people');
+      element.innerHTML = str;
+    } else {
+      element.innerHTML = parseFloat(new Number(str).toFixed(2));
+    }
+  }
 
-      function removeLastNumber(value){
-        console.log("removeLastNumber " + value);
-        return value.slice(0, value.length-1);
-      }
+  function removeLastNumber(value){
+    console.log("removeLastNumber " + value);
+    return value.slice(0, value.length-1);
+  }
 
-      function updateScreen(value){
-        console.log("updateScreen " + lastFocusedTextarea)
-        var activeElement = document.getElementById(lastFocusedTextarea);
-        if (activeElement.innerHTML == 0){
-          insertValue(activeElement, value)
-        } else if (value == '<'){
-          console.log('last number - retreat!');
-          insertValue(activeElement, removeLastNumber(activeElement.innerHTML));
-        } else {
-          insertValue(activeElement, activeElement.innerHTML + value);
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Display section -->
-      <div id="testRelativeDiv" class="center" style="height:30%">
-        <div style="height:40%;">
-          <div class="floatLeft gradientBckg">
-            <img src="img/cur_main_EUR.png">
-          </div>
-          <div class="floatRight gradientBckg">
-            <img src="img/cur_main_USD.png">
-          </div>
+  function updateScreen(value){
+    console.log("updateScreen " + lastFocusedTextarea)
+    var activeElement = document.getElementById(lastFocusedTextarea);
+    if (activeElement.innerHTML == 0){
+      insertValue(activeElement, value);
+      runConvert(lastFocusedTextarea);
+    } else if (value == '<'){
+      console.log('last number - retreat!');
+      insertValue(activeElement, removeLastNumber(activeElement.innerHTML));
+      runConvert(lastFocusedTextarea);
+    } else {
+      insertValue(activeElement, activeElement.innerHTML + value);
+      runConvert(lastFocusedTextarea);
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <!-- Display section -->
+    <div id="testRelativeDiv" class="center" style="height:30%">
+      <div style="height:40%;">
+        <div class="floatLeft gradientBckg">
+          <img src="img/cur_main_EUR.png">
         </div>
-        <div style="height:60%">
-          <textarea id="leftScreen" readonly="true" rows="1" class="floatLeft displayText" onFocus="lastActiveTextArea('leftScreen')">0</textarea>
-          <textarea id="rightScreen" readonly="true" rows="1" class="floatRight displayText 3gradient" onFocus="lastActiveTextArea('rightScreen')">0</textarea>
+        <div class="floatRight gradientBckg">
+          <img src="img/cur_main_USD.png">
         </div>
       </div>
-
-      <!--Button section-->
-      <div class="center buttonHolder" style="height:70%">
-        <button onclick="updateScreen('1')" >1</button> <button onclick="updateScreen('2')">2</button> <button onclick="updateScreen('3')">3</button> <button onclick="updateScreen('4')">4</button> <button onclick="updateScreen('5')">5</button> <button onclick="updateScreen('6')">6</button> <button onclick="updateScreen('7')">7</button> <button onclick="updateScreen('8')">8</button> <button onclick="updateScreen('9')">9</button> <button onclick="updateScreen('&lt;')">&lt;</button> <button onclick="updateScreen('0')">0</button> <button onclick="updateScreen('.')">.</button>
+      <div style="height:60%">
+        <textarea id="leftScreen" readonly="true" rows="1" class="floatLeft displayText" onfocus="lastActiveTextArea('leftScreen')">
+          0
+        </textarea> 
+        <textarea id="rightScreen" readonly="true" rows="1" class="floatRight displayText 3gradient" onfocus="lastActiveTextArea('rightScreen')">
+          0
+        </textarea>
       </div>
+    </div><!--Button section-->
+    <div class="center buttonHolder" style="height:70%">
+      <button onclick="updateScreen('1')">1</button> <button onclick="updateScreen('2')">2</button> <button onclick="updateScreen('3')">3</button> <button onclick="updateScreen('4')">4</button> <button onclick="updateScreen('5')">5</button> <button onclick="updateScreen('6')">6</button> <button onclick="updateScreen('7')">7</button> <button onclick="updateScreen('8')">8</button> <button onclick="updateScreen('9')">9</button> <button onclick="updateScreen('&lt;')">&lt;</button> <button onclick="updateScreen('0')">0</button> <button onclick="updateScreen('.')">.</button>
     </div>
-  </body>
+  </div>
+</body>
 </html>

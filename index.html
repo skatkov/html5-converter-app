@@ -29,7 +29,7 @@
 
       function insertValue(element, value){
         console.log('insertValue : ' + value);
-        if (-1 != value.search('.')) {
+        if ('.' == value.slice(value.length -1 , value.length)) {
           console.log('i see .dot people');
           element.innerHTML = value;
         } else {

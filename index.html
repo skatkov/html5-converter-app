@@ -37,10 +37,20 @@
         }
       }
 
+      function removeLastNumber(value){
+        console.log("removeLastNumber " + value);
+        return value.slice(0, value.lenght -2);
+
+      }
+
       function updateScreen(value){
+        console.log("updateScreen " + lastFocusedTextarea)
         var activeElement = document.getElementById(lastFocusedTextarea);
         if (activeElement.innerHTML == 0){
           insertValue(activeElement, value)
+        } else if (value == '<'){
+          console.log('last number - retreat!');
+          insertValue(activeElement, removeLastNumber(activeElement.innerHTML));
         } else {
           insertValue(activeElement, activeElement.innerHTML + value);
         }
@@ -60,8 +70,8 @@
           </div>
         </div>
         <div style="height:60%">
-          <textarea id="leftScreen" readonly="true" rows="1" class="floatLeft displayText" onkeydown="runConvert(event)" onFocus="lastActiveTextArea('leftScreen')">0</textarea>
-          <textarea id="rightScreen" readonly="true" rows="1" class="floatRight displayText 3gradient" onkeydown="runConvert(event)" onFocus="lastActiveTextArea('rightScreen')">0</textarea>
+          <textarea id="leftScreen" readonly="true" rows="1" class="floatLeft displayText" onFocus="lastActiveTextArea('leftScreen')">0</textarea>
+          <textarea id="rightScreen" readonly="true" rows="1" class="floatRight displayText 3gradient" onFocus="lastActiveTextArea('rightScreen')">0</textarea>
         </div>
       </div>
 

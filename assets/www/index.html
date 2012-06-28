@@ -7,23 +7,72 @@
   <link rel="stylesheet" href="css/main.css" type="text/css">
   <meta http-equiv="Content-type" content="text/html; charset=us-ascii">
   <script language="JavaScript" src="converter.js"> </script>
-	<!-- Uncomment following line to access PhoneGap APIs (not necessary to use PhoneGap to package web app) -->
-	<!-- <script type="text/javascript" charset="utf-8" src="cordova-1.8.0.js"></script>-->
+
+  <script type="text/javascript">
+  var strStart = '<a href="languageSelection.html"><img src="';
+  var strEnd = '"></a>';
+
+  function setDate(str){
+    document.getElementById("currency").innerHTML = str;
+  }
+
+  function setCurrent(str){
+    localStorage.setItem("current", str);
+  }
+
+  function changeCurrency() {
+    if (localStorage.getItem("currency") == null) {
+      localStorage.setItem("currency", 1.5);
+    } else if (localStorage.getItem("currency") == 1.5) {
+      localStorage.setItem("currency", 2.0);
+    } else if (localStorage.getItem("currency") == 2.0) {
+      localStorage.setItem("currency", 1.5); 
+    }
+
+    document.getElementById("currency").innerHTML = localStorage.getItem("currency");
+  }
+  
+  function load(){
+   console.log("left " + localStorage.getItem("currencyLeft"));
+   if (localStorage.getItem("currencyLeft") == null) {
+     console.log("default value for currencyLeft is img/cur_main_EUR.png");
+     localStorage.setItem("currencyLeft", "img/cur_main_EUR.png");
+   }
+   if (localStorage.getItem("currencyRight") == null){
+    console.log("default value for currencyLeft is img/cur_main_EUR.png");
+    localStorage.setItem("currencyRight", "img/cur_main_USD.png");
+  }
+
+  changeCurrency();
+  document.getElementById("currencyLeft").innerHTML = strStart + localStorage.getItem("currencyLeft") + strEnd;
+  document.getElementById("currencyRight").innerHTML = strStart + localStorage.getItem("currencyRight") + strEnd;
+
+}
+</script>
+
+
+
+<!-- Uncomment following line to access PhoneGap APIs (not necessary to use PhoneGap to package web app) -->
+<!-- <script type="text/javascript" charset="utf-8" src="cordova-1.8.0.js"></script>-->
 
 </head>
-<body>
+<body onload="load()">
   <div class="container">
     <!-- Display section -->
     <div id="testRelativeDiv" class="center" style="height:30%">
+      <div style="height:10%;">
+        <button onclick="changeCurrency()">Change</button> Currency: <strong id="currency">test</strong>
+      </div>
+
       <div style="height:40%;">
-        <div class="floatLeft gradientBckg">
-          <img src="img/cur_main_EUR.png">
+        <div id="currencyLeft" onmouseover="setCurrent('currencyLeft')" class="floatLeft gradientBckg">
+          <!-- currency flag holder -->
         </div>
-        <div class="floatRight gradientBckg">
-          <img src="img/cur_main_USD.png">
+        <div id="currencyRight" onmouseover="setCurrent('currencyRight')" class="floatRight gradientBckg">
+          <!-- currency flag holder -->
         </div>
       </div>
-      <div style="height:60%">
+      <div style="height:50%">
         <textarea id="leftScreen" readonly="true" rows="1" class="floatLeft displayText" onfocus="lastActiveTextArea('leftScreen')">
           0
         </textarea> 
@@ -31,7 +80,8 @@
           0
         </textarea>
       </div>
-    </div><!--Button section-->
+    </div>
+    <!--Button section-->
     <div class="center buttonHolder" style="height:70%">
       <button onclick="updateScreen('1')">1</button> <button onclick="updateScreen('2')">2</button> <button onclick="updateScreen('3')">3</button> <button onclick="updateScreen('4')">4</button> <button onclick="updateScreen('5')">5</button> <button onclick="updateScreen('6')">6</button> <button onclick="updateScreen('7')">7</button> <button onclick="updateScreen('8')">8</button> <button onclick="updateScreen('9')">9</button> <button onclick="updateScreen('&lt;')">&lt;</button> <button onclick="updateScreen('0')">0</button> <button onclick="updateScreen('.')">.</button>
     </div>

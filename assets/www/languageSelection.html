@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+	<title>Language selection</title>
+	<link rel="stylesheet" href="css/main.css" type="text/css">
+	<meta http-equiv="Content-type" content="text/html; charset=us-ascii">
+	<script type="text/javascript">
+	function setFlag(flagLink){
+		console.log("flagLink " + flagLink);
+		console.log("current " + localStorage.getItem("current"));
+		localStorage.setItem(localStorage.getItem("current"), flagLink);
+		console.log("left " + localStorage.getItem("currencyLeft"));
+		console.log("right " + localStorage.getItem("currencyRight"));
+		window.location = "index.html"
+	}
+	</script>
+	<!-- Uncomment following line to access PhoneGap APIs (not necessary to use PhoneGap to package web app) -->
+	<!-- <script type="text/javascript" charset="utf-8" src="cordova-1.8.0.js"></script>-->
+</head>
+<body>
+	<div class="lang">
+		<img onclick="setFlag('img/cur_main_AUD.png')" src="img/cur_main_AUD.png"><br/>
+		<img onclick="setFlag('img/cur_main_BGN.png')" src="img/cur_main_BGN.png"><br/>
+		<img onclick="setFlag('img/cur_main_BRL.png')" src="img/cur_main_BRL.png"><br/>
+		<img onclick="setFlag('img/cur_main_CAD.png')" src="img/cur_main_CAD.png"><br/>
+		<img onclick="setFlag('img/cur_main_CHF.png')" src="img/cur_main_CHF.png"><br/>
+		<img onclick="setFlag('img/cur_main_CNY.png')" src="img/cur_main_CNY.png"><br/>
+		<img onclick="setFlag('img/cur_main_CZK.png')" src="img/cur_main_CZK.png"><br/>
+		<img onclick="setFlag('img/cur_main_DKK.png')" src="img/cur_main_DKK.png"><br/>
+		<img onclick="setFlag('img/cur_main_EEK.png')" src="img/cur_main_EEK.png"><br/>
+		<img onclick="setFlag('img/cur_main_EUR.png')" src="img/cur_main_EUR.png"><br/>
+		<img onclick="setFlag('img/cur_main_GBP.png')" src="img/cur_main_GBP.png"><br/>
+		<img onclick="setFlag('img/cur_main_HKD.png')" src="img/cur_main_HKD.png"><br/>
+		<img onclick="setFlag('img/cur_main_HRK.png')" src="img/cur_main_HRK.png"><br/>
+		<img onclick="setFlag('img/cur_main_HUF.png')" src="img/cur_main_HUF.png"><br/>
+		<img onclick="setFlag('img/cur_main_IDR.png')" src="img/cur_main_IDR.png"><br/>
+		<img onclick="setFlag('img/cur_main_ILS.png')" src="img/cur_main_ILS.png"><br/>
+		<img onclick="setFlag('img/cur_main_INR.png')" src="img/cur_main_INR.png"><br/>
+		<img onclick="setFlag('img/cur_main_JPY.png')" src="img/cur_main_JPY.png"><br/>
+		<img onclick="setFlag('img/cur_main_KRW.png')" src="img/cur_main_KRW.png"><br/>
+		<img onclick="setFlag('img/cur_main_LTL.png')" src="img/cur_main_LTL.png"><br/>
+		<img onclick="setFlag('img/cur_main_LVL.png')" src="img/cur_main_LVL.png"><br/>
+		<img onclick="setFlag('img/cur_main_MXN.png')" src="img/cur_main_MXN.png"><br/>
+		<img onclick="setFlag('img/cur_main_MYR.png')" src="img/cur_main_MYR.png"><br/>
+		<img onclick="setFlag('img/cur_main_NOK.png')" src="img/cur_main_NOK.png"><br/>
+		<img onclick="setFlag('img/cur_main_NZD.png')" src="img/cur_main_NZD.png"><br/>
+		<img onclick="setFlag('img/cur_main_PHP.png')" src="img/cur_main_PHP.png"><br/>
+		<img onclick="setFlag('img/cur_main_PLN.png')" src="img/cur_main_PLN.png"><br/>
+		<img onclick="setFlag('img/cur_main_RON.png')" src="img/cur_main_RON.png"><br/>
+		<img onclick="setFlag('img/cur_main_RUB.png')" src="img/cur_main_RUB.png"><br/>
+		<img onclick="setFlag('img/cur_main_SEK.png')" src="img/cur_main_SEK.png"><br/>
+		<img onclick="setFlag('img/cur_main_SGD.png')" src="img/cur_main_SGD.png"><br/>
+		<img onclick="setFlag('img/cur_main_THB.png')" src="img/cur_main_THB.png"><br/>
+		<img onclick="setFlag('img/cur_main_TRY.png')" src="img/cur_main_TRY.png"><br/>
+		<img onclick="setFlag('img/cur_main_USD.png')" src="img/cur_main_USD.png"><br/>
+		<img onclick="setFlag('img/cur_main_ZAR.png')" src="img/cur_main_ZAR.png">
+	</div>
+
+</body>
+</html>

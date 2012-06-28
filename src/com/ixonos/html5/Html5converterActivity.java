@@ -2,6 +2,7 @@ package com.ixonos.html5;
 
 import org.apache.cordova.DroidGap;
 import android.os.Bundle;
+import android.webkit.CookieSyncManager;
 
 public class Html5converterActivity extends DroidGap {
     /** Called when the activity is first created. */

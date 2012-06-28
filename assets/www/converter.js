@@ -1,5 +1,6 @@
 
 var lastFocusedTextarea = 'leftScreen';
+
 function lastActiveTextArea(fieldId) {
 	console.log('Focus changed');
 	lastFocusedTextarea = fieldId;
@@ -10,10 +11,10 @@ function runConvert(fromElement) {
 	var activeElement = document.getElementById(fromElement);
 	if (lastFocusedTextarea == "leftScreen") {
 		insertValue(document.getElementById("rightScreen"),
-				parseFloat(activeElement.innerHTML) * localStorage.getItem("currency"));
+			parseFloat(activeElement.innerHTML) * localStorage.getItem("currency"));
 	} else {
 		insertValue(document.getElementById("leftScreen"),
-				parseFloat(activeElement.innerHTML) * localStorage.getItem("currency"));
+			parseFloat(activeElement.innerHTML) * localStorage.getItem("currency"));
 	}
 }
 
@@ -40,7 +41,6 @@ function updateScreen(value) {
 		insertValue(activeElement, value);
 		runConvert(lastFocusedTextarea);
 	} else if (value == '<') {
-		console.log('last number - retreat!');
 		insertValue(activeElement, removeLastNumber(activeElement.innerHTML));
 		runConvert(lastFocusedTextarea);
 	} else {

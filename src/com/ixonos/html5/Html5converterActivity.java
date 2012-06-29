@@ -2,6 +2,7 @@ package com.ixonos.html5;
 
 import org.apache.cordova.DroidGap;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.webkit.CookieSyncManager;
 
 public class Html5converterActivity extends DroidGap {
@@ -10,5 +11,13 @@ public class Html5converterActivity extends DroidGap {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.loadUrl("file:///android_asset/www/index.html");
+        
+    }
+    
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    	if (keyCode == KeyEvent.KEYCODE_MENU) {
+    		this.appView.loadUrl("javascript:changeCurrency()");
+    	}
+    	return false;
     }
 }

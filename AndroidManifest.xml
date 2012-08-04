@@ -36,7 +36,7 @@
     <application android:debuggable="true" android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity android:configChanges="orientation|keyboardHidden" android:name=".Html5converterActivity"
-            android:label="@string/app_name" >
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

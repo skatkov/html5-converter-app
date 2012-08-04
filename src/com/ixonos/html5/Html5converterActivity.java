@@ -3,6 +3,7 @@ package com.ixonos.html5;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 public class Html5converterActivity extends Activity {
@@ -15,7 +16,9 @@ public class Html5converterActivity extends Activity {
     	setContentView(R.layout.webview);
     	webView = (WebView) findViewById(R.id.webView1);
     	   	
-    	webView.getSettings().setJavaScriptEnabled(true);
+    	WebSettings webSettings = webView.getSettings();
+    	webSettings.setJavaScriptEnabled(true);
+    	webSettings.setDomStorageEnabled(true);
     	webView.loadUrl("file:///android_asset/www/index.html");
     }
     

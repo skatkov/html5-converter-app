@@ -1,22 +1,27 @@
 package com.ixonos.html5;
 
-import org.apache.cordova.DroidGap;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
 
-public class Html5converterActivity extends DroidGap {
-    /** Called when the activity is first created. */
-    @Override
+public class Html5converterActivity extends Activity {
+	WebView webView; 
+	
+	@Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        super.loadUrl("file:///android_asset/www/index.html");
-        
+		super.onCreate(savedInstanceState);
+ 
+    	setContentView(R.layout.webview);
+    	webView = (WebView) findViewById(R.id.webView1);
+    	   	
+    	webView.getSettings().setJavaScriptEnabled(true);
+    	webView.loadUrl("file:///android_asset/www/index.html");
     }
     
     public boolean onKeyDown(int keyCode, KeyEvent event) {
     	if (keyCode == KeyEvent.KEYCODE_MENU) {
-    		this.appView.loadUrl("javascript:changeCurrency()");
+    		this.webView.loadUrl("javascript:changeCurrency()");
     	}
     	return false;
     }
